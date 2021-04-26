@@ -6,6 +6,3 @@ Build | Code Quality |
 
 
 
-**Activity 1**
-
-Off
