@@ -6,3 +6,8 @@ Build | Code Quality |
 
 
 
+**Activity 1**
+
+Off
+
+![Circuit](https://github.com/mahimakumar3/Embedded_Project/blob/main/Requirements/off%20circuit.png)
