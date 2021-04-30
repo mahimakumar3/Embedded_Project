@@ -1,5 +1,7 @@
-#include "ledstat.h"
-#include "ReadADC.h"
+#include "activity1.h"
+#include "activity2.h"
+#include "activity3.h"
+#include"activity4.h"
 #include<avr/io.h>
 
 
@@ -10,20 +12,24 @@
 
 void peripheral_init(void)
 {
-    /*Configure LED and Switch pins*/
-    DDRB|=(1<<PB1);
-    DDRD&=~(1<<PD0);
-    PORTD|=(1<<PD0);
-    PORTD|=(1<<PD1);
+    
+    InitLED();
+
     InitADC();
+ 
+    InitPWM();
+    
+    InitUART(103);
 }
 
 
+uint16_t temp;
+char temp_data;
 int main(void)
 {
-    uint16_t temp;
-    // Initialize peripherals
+   
     peripheral_init();
+
     while(1)
     {
         if(SENSOR_ON) //If switch_1 is ON
@@ -32,12 +38,22 @@ int main(void)
             {
                 ledstat(LED_ON);//LED is ON
                 temp=ReadADC(0);
+                temp_data = outPWM(temp);
+                UARTwrite(temp_data);
+
+            }
+            else
+            {
+
+                ledstat(LED_OFF);
             }
         }
         else
         {
             ledstat(LED_OFF);//LED is OFF
+            OCR1A=0;
         }
     }
     return 0;
 }
+
