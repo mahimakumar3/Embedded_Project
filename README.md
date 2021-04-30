@@ -15,3 +15,7 @@ Build | Code Quality |
 **On**
 
 ![Circuit](https://github.com/mahimakumar3/Embedded_Project/blob/main/Requirements/on%20circuit.png)
+
+# Activity 2
+
+![Circuit](https://github.com/mahimakumar3/Embedded_Project/blob/main/Requirements/activity2.png)
